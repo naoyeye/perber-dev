@@ -1,0 +1,19 @@
+{
+  "name": "perber",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.3",
+    "ejs": "*",
+    "redis": "0.9.0",
+    "pg": "2.8.2",
+    "knex": "~0.4.11",
+    "bookshelf": "0.5.7",
+    "validator":"1.2.1",
+    "underscore":"1.5.2",
+    "node-uuid":"1.4.1"
+  }
+}

@@ -1,0 +1,3 @@
+{
+    "postgresConfig" : "postgres://user:password@localhost:5432/perber-data-test"
+}
