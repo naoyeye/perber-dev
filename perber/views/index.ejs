@@ -97,14 +97,15 @@
     </div>
 </script> -->
 
-<script type="text/template" id="template-perber-item">
+<script type="text/template" id="template-activity-item">
     <div class="selectable" >
-        <div class="icon"><span>icon</span></div>
         <div class="content">
-            
-            <p class="message">ddd</p>
-            
+        <% if (message) { %>
+            <div class="message selectable"><% messageAsHtml() %></div>
             <span class="time timeago" title=""></span>
+        <% } else { %>
+            <p class="message">空</p>
+        <% } %>
         </div>
     </div>
     <!-- ddd -->

@@ -25,12 +25,38 @@ Bookshelf.PG = Bookshelf.initialize({
   connection: config.postgresConfig
 });
 
-// // elsewhere, to use the client:
-// var Bookshelf = require('bookshelf').PG;
+// elsewhere, to use the client:
+var Bookshelf = require('bookshelf').PG;
 
-// var Post = Bookshelf.Model.extend({
-//   // ...
-// });
+var Activity = Bookshelf.Model.extend({
+    tableName: 'activities',
+
+    permittedAttributes: [
+        'id', 'uuid', 'title', 'slug', 'markdown', 'html', 'meta_title', 'meta_description',
+        'featured', 'image', 'status', 'language', 'author_id', 'created_at', 'created_by', 'updated_at', 'updated_by',
+        'published_at', 'published_by'
+    ],
+
+    defaults: function () {
+        return {
+            uuid: uuid.v4(),
+            status: 'draft'
+        };
+    },
+
+    initialize: function () {
+        this.on('creating', this.creating, this);
+        this.on('saving', this.updateTags, this);
+        this.on('saving', this.saving, this);
+        this.on('saving', this.validate, this);
+    },
+
+    validate: function () {
+        Bookshelf.validator.check(this.get('title'), "Post title cannot be blank").notEmpty();
+
+        return true;
+    },
+});
 
 
 var app = express();
