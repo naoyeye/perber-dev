@@ -18,7 +18,7 @@ App.addRegions({
 App.addInitializer(function(){
     Perber.user = new Perber.Model.Me(Perber.config.user);
     
-    Perber.user.start();
+    // Perber.user.start();
     Perber.users = new Perber.Collection.Users();
 
     Perber.activity = new Perber.Collection.ActivitysItems();

@@ -99,14 +99,7 @@
 
 <script type="text/template" id="template-activity-item">
     <div class="selectable" >
-        <div class="content">
-        <% if (message) { %>
-            <div class="message selectable"><% messageAsHtml() %></div>
-            <span class="time timeago" title=""></span>
-        <% } else { %>
-            <p class="message">空</p>
-        <% } %>
-        </div>
+        <div class="message selectable"><%= title %></div>
     </div>
     <!-- ddd -->
 </script>
